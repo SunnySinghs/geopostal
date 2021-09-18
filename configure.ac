@@ -1,7 +1,7 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
-AC_INIT([jpostal], [0.3])
+AC_INIT([geopostal], [0.3])
 
 AC_CONFIG_MACRO_DIR([m4])
 
