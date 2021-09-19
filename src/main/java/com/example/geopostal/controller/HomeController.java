@@ -2,9 +2,13 @@ package com.example.geopostal.controller;
 
 import com.example.geopostal.dto.ParsedComponent;
 import com.example.geopostal.utils.AddressParser;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Objects;
 
 @RestController
 public class HomeController {
@@ -16,10 +20,14 @@ public class HomeController {
     }
 
     @RequestMapping("/convert")
-    public ParsedComponent[] addressConverter(@RequestHeader(name="address") String address) {
+    public ResponseEntity<ParsedComponent[]> addressConverter(@RequestHeader(name="address") String address) {
         AddressParser parser = AddressParser.getInstance();
         ParsedComponent[] parsedComponents = parser.parseAddress(address);
-        return parsedComponents;
+        for (ParsedComponent c : parsedComponents) {
+            System.out.printf("%s: %s\n", c.getLabel(), c.getValue());
+        }
+        return Objects.nonNull(parsedComponents) ? new ResponseEntity<>(parsedComponents, HttpStatus.OK)
+                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
 
