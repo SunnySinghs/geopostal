@@ -106,7 +106,7 @@ JNIEXPORT void JNICALL Java_com_example_geopostal_utils_AddressParser_teardown
 }
 
 
-JNIEXPORT void JNICALL Java_example_geopostal_utils_ParserOptions_00024Builder_setDefaultOptions
+JNIEXPORT void JNICALL Java_example_geopostal_dto_ParserOptions_00024Builder_setDefaultOptions
   (JNIEnv *env, jobject builder) {
 
     jfieldID fid;
