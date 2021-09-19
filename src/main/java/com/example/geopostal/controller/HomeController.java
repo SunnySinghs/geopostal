@@ -16,7 +16,7 @@ public class HomeController {
     }
 
     @RequestMapping("/convert")
-    public ParsedComponent[] home(@RequestHeader(name="address") String address) {
+    public ParsedComponent[] addressConverter(@RequestHeader(name="address") String address) {
         AddressParser parser = AddressParser.getInstance();
         ParsedComponent[] parsedComponents = parser.parseAddress(address);
         return parsedComponents;
