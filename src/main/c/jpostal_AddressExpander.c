@@ -245,7 +245,7 @@ JNIEXPORT void JNICALL Java_com_example_geopostal_utils_AddressExpander_teardown
 }
 
 
-JNIEXPORT void JNICALL Java_com_example_geopostal_utils_ExpanderOptions_00024Builder_setDefaultOptions
+JNIEXPORT void JNICALL Java_com_example_geopostal_dto_ExpanderOptions_00024Builder_setDefaultOptions
   (JNIEnv *env, jobject builder) {
     jfieldID fid;
     jclass cls = (*env)->GetObjectClass(env, builder);
